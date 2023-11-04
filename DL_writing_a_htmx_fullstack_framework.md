@@ -107,3 +107,15 @@ async fn render_templates(route: String, hx: bool) -> String {
 ```   
 
 Now the router is set up to handle the request and call the 'render_templates' accordingly. And if the hx is true then only data is sent not the whole rendered page. This was a makeshift way I'm currently using in my blog website to render html, and it is strictly make shift. Cause we can all see the glaring problem with this solution, the 'else if hell.'   
+Now I'm currently thinking of a function that'd list all the hx-calls in the xdom! macro and the data that'd be called. And assigning unique hx-endpoints for all the calls that can happen. At the end we compile all the doms and endpoints and that should do it. So at the end we should be left we too types of endpoint in our server, 'HX-endpoints' for handling hx-calls and headers and 'Route-Handlers' to handle route navigation as the name suggests.
+
+To end today's blog I'll discuss the biggest feature/problem to solve is to write a minimal fetch api like in NEXT.js.
+
+### Fetch api client for Serverside data fetching   
+What is next.js infamous for and also the reason I fell in love with it? Ease of data handling (fetch, cache, revalidate).   
+So I must have it!   
+Which is easier said than done. I've unironically decided to use 'Hyper' as the http library.
+
+
+That is all for today. May you have a great day or night wherever or whenever you're reading this.   
+#### Thank you!!
