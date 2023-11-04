@@ -21,7 +21,7 @@ Imagine a function that renders out 'hello mom' in a heading 1 element.
 
 How would you aproach this in NEXT?   
 ```ts
-function Random_Page() {
+function Random_Component() {
     let data = "mom";
 
     return (
@@ -35,7 +35,7 @@ Right?
 
 Now think of a rust function like this.   
 ```rs
-fn random_page() -> Html<String> {
+fn random_component() -> Html<String> {
     let data = "mom".to_string();
 
     let body = html!`
@@ -51,7 +51,7 @@ Does not seem too bad in my inexperienced eyes though.
 
 Yeah now let me be clear this is not by any means well thought out or final structure but it gets done the job of getting the idea onto the page. Also while we're at it let's make a bit of change in the function.   
 ```rs
-fn random_page() -> Html<String> {
+fn random_component() -> Html<String> {
     let data = "mom".to_string();
 
     let body = xdom!`       // change html macro to xdom
@@ -114,8 +114,9 @@ To end today's blog I'll discuss the biggest feature/problem to solve is to writ
 ### Fetch api client for Serverside data fetching   
 What is next.js infamous for and also the reason I fell in love with it? Ease of data handling (fetch, cache, revalidate).   
 So I must have it!   
-Which is easier said than done. I've unironically decided to use 'Hyper' as the http library.
+Which is easier said than done. And I unironically decided to use 'Hyper' as the http library.
 
+Anyways that's as far as primary level 'whiteboard masturbation' goes. So many steps to cover, so many lines of codes to be written. This is the journey of a lifetime, that's what I'd like to call it.
 
 That is all for today. May you have a great day or night wherever or whenever you're reading this.   
-#### Thank you!!
+#### Thank you!! & Goodnight
