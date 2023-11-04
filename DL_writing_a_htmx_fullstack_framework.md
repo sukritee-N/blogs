@@ -1,7 +1,109 @@
 ---
 title: 'Writing A HTMX Fullstack Framework From Scratch'
-description: 'begining of a journey to write a htmx fullstack framework from scratch in rust programming language with little to zero experience. purpose is to make htmx more aproachable to those who are still stuck in 'virtual dom did mount' hell loop and also make it as close to plug n play as possible.'
+description: "begining of a journey to write a htmx fullstack framework from scratch in rust programming language with little to zero experience. purpose is to make htmx more aproachable to those who are still stuck in 'virtual dom did mount' hell loop and also make it as close to plug n play as possible."
 date: '9:31PM,4-11-2023'
 tags: ['programming', 'recreational', 'htmx', 'fullstack', 'devlog']
 ---
 
+We all know what HTMX is by now. And we also know what MDD is.   
+But even though there're enough memes, there's no fullstack HTMX framwork. Which is a bit of shame and dissapointing to a hardcore memer like me.
+
+Let's write.
+
+### The Glorius Beginning of Pure Chaos   
+I myself am in love with NEXT.JS. But the frontend framework it is based around is not something I like. Why? 'No Reason.'   
+I tried out svelte, fell in love. Hated sveltekit, left.
+
+So I found this situation to be quite amusing cause it gave me a reason to try making a fullstack framework which would provide me a plenty of content to write about and it is quite the opportunity to level up my programming skill thousand folds.
+
+### The Initial Plan and Vision   
+Imagine a function that renders out 'hello mom' in a heading 1 element.
+
+How would you aproach this in NEXT?   
+```ts
+function Random_Page() {
+    let data = "mom";
+
+    return (
+        <h1>
+            {`hello ${ data }`}
+        </h1>
+    )
+}
+```   
+Right?
+
+Now think of a rust function like this.   
+```rs
+fn random_page() -> Html<String> {
+    let data = "mom".to_string();
+
+    let body = html!`
+        <h1>
+            hello {{ data }}
+        </h1>
+    `;
+
+    body
+}
+```   
+Does not seem too bad in my inexperienced eyes though.
+
+Yeah now let me be clear this is not by any means well thought out or final structure but it gets done the job of getting the idea onto the page. Also while we're at it let's make a bit of change in the function.   
+```rs
+fn random_page() -> Html<String> {
+    let data = "mom".to_string();
+
+    let body = xdom!`       // change html macro to xdom
+        <h1>
+            hello {{ data }}
+        </h1>
+    `;
+
+    body
+}
+```   
+We need the x-factor in this day n age. And "X" stands for "G" in rune so it rounds up to 'GDOM.' It's alternative of 'VDOM' and 'der meme factor.'
+
+This just about takes care of one of the main hardle to tackle and now it's time for one of the bigger problems...
+
+### Setting up HX endpoints   
+For now after reading the docs and hate comments on twitter it seems the biggest hardle of HTMX is setting up the data endpoints. Which must be resolved as efficiently as possible so users must not have to set up the endpoints. Let me show you an example,   
+```rs
+async fn render_templates(route: String, hx: bool) -> String {
+    let layout = std::fs::read_to_string("path to layout").unwrap();
+    // layout.html
+    ///
+    // <h2> hello { children } </h2>
+
+    let page = std::fs::read_to_string("path to page").unwrap();
+    // page.html
+    ///
+    // <em> mom </em>
+
+    let body: String;
+
+    if route == "/" {
+        if !hx {
+            body = layout.replace("{ children }", &page)
+        } else {
+            body = page
+        }
+    } else {
+        body = "Not Found".to_string()
+    }
+
+    let mut tera = Tera::default();
+    tera.add_raw_template("layout", &body).unwrap();
+
+    let mut ctx = Context::new();
+    tera
+        .render("layout", &ctx)
+        .unwrap()
+    // renders out as a String
+    ///
+    // <h2> hello <em> mom </em> </h2>
+}
+```   
+
+Now the router is set up to handle the request and call the 'render_templates' accordingly. And if the hx is true then only data is sent not the whole rendered page. This was a makeshift way I'm currently using in my blog website to render html, and it is strictly make shift. Cause we can all see the glaring problem with this solution, the 'else if hell.'   
