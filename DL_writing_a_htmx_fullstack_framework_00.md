@@ -6,9 +6,9 @@ tags: ['programming', 'recreational', 'htmx', 'fullstack', 'devlog']
 ---
 
 We all know what HTMX is by now. And we also know what MDD is.   
-But even though there're enough memes, there's no fullstack HTMX framwork. Which is a bit of shame and dissapointing to a hardcore memer like me.
+But even though there're enough memes, there's no fullstack HTMX framwork. Which is a bit of shame and dissapointing to a hardcore meme driven developer like me.
 
-Let's write.
+Let's write one then.
 
 ### The Glorius Beginning of Pure Chaos   
 I myself am in love with NEXT.JS. But the frontend framework it is based around is not something I like. Why? 'No Reason.'   
