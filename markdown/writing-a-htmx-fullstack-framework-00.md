@@ -1,8 +1,9 @@
 ---
 title: 'Writing A HTMX Fullstack Framework From Scratch'
-description: "begining of a journey to write a htmx fullstack framework from scratch in rust programming language with little to zero experience. purpose is to make htmx more aproachable to those who are still stuck in 'virtual dom did mount' hell loop and also make it as close to plug n play as possible."
+series: 'hff'
+description: "begining of a journey to write a htmx fullstack framework from scratch in r*st programming language with little to zero experience. purpose is to make htmx more aproachable to those who are still stuck in 'virtual dom did mount' hell loop and also make it as close to plug n play as possible."
 date: '9:31PM,4-11-2023'
-tags: ['programming', 'recreational', 'htmx', 'fullstack', 'devlog']
+tags: ['programming', 'recreational', 'htmx', 'htmx-framework', 'fullstack', 'devlog']
 ---
 
 We all know what HTMX is by now. And we also know what MDD is.   
@@ -33,7 +34,7 @@ function Random_Component() {
 ```   
 Right?
 
-Now think of a rust function like this.   
+Now think of a r*st function like this.   
 ```rs
 fn random_component() -> Html<String> {
     let data = "mom".to_string();
