@@ -9,7 +9,7 @@ tags: ['programming', 'recreational', 'htmx', 'htmx-framework', 'fullstack', 'de
 We all know what HTMX is by now. And we also know what MDD is.   
 But even though there're enough memes, there's no fullstack HTMX framwork. Which is a bit of shame and dissapointing to a hardcore meme driven developer like me.
 
-Let's write one then.
+Let's write one then. What's the end goal? Proper file/component based routing and one single binary to deploy to production that offer Native UI like fast n smooth navigation. And in the future support for serverless computation like AWS lambda to break off monolithic structure and cost reduction.
 
 ### The Glorius Beginning of Pure Chaos   
 I myself am in love with NEXT.JS. But the frontend framework it is based around is not something I like. Why? 'No Reason.'   
@@ -117,7 +117,7 @@ What is next.js infamous for and also the reason I fell in love with it? Ease of
 So I must have it!   
 Which is easier said than done. And I unironically decided to use 'Hyper' as the http library.
 
-Anyways that's as far as primary level 'whiteboard masturbation' goes. So many steps to cover, so many lines of codes to be written. This is the journey of a lifetime, that's what I'd like to call it.
+Anyways that's as far as primary level 'whiteboard masturbation' goes. So many steps to cover, so many lines of codes to be written. This is the journey of a lifetime, that's what I'd like to call it. This is the first ever proper project I'll be working on so there's bound to be mistakes and a lots to learn. Sounds like fun to me.
 
 That is all for today. May you have a great day or night wherever or whenever you're reading this.   
 #### Thank you!! & Goodnight
