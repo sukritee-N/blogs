@@ -1,8 +1,8 @@
 ---
-title: 'Taking A Breather And Write A Chat App'
-series: 'privat'
+title: 'Taking A Breather And Write A Game'
+series: 'noc'
 description: ""
 date: ''
-tags: ['recreational', 'htmx', 'hypermedia', 'devlog', 'mental-health', 'chat-app', 'websocket']
+tags: ['recreational', 'devlog', 'mental-health']
 ---
 
